@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music</title>
+</head>
+<body>
+    <button onclick="stp()" id="p">Start</button>
+    <button onclick="res()">Restart</button>
+</body>
+<script>
+    var but = document.getElementById("p");
+    var musics = {
+        "1":new Audio('baaki.mp3')
+    }
+    function stp() {
+        if (musics["1"].duration > 0 && !musics["1"].paused) {
+            but.innerText = "Play";
+            musics["1"].pause();
+        }
+        else{
+            but.innerText = "Pause";
+            musics["1"].play();
+        }
+    }
+    function res() {
+        musics["1"].currentTime = 0;
+    }
+    
+</script>
+</html>

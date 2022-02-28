@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div id="board" class="bg-black" style="font-style: 'Poppins';">
+        <div id="lay1" class="flex text-white text-6xl">
+            <button class="chn" id="one">-</button>
+            <button class="chn" id="two">-</button>
+            <button class="chn" id="three">-</button>
+        </div>
+        <div id="lay2" class="flex text-white text-6xl">
+            <button class="chn" id="four">-</button>
+            <button class="chn" id="five">-</button>
+            <button class="chn" id="six">-</button>
+        </div>
+        <div id="lay3" class="flex text-white text-6xl">
+            <button class="chn" id="seven">-</button>
+            <button class="chn" id="eight">-</button>
+            <button class="chn" id="nine">-</button>
+        </div>
+    </div>
+</body>
+<style>
+    .chn {
+        border: .1px solid white;
+        padding-top: 25px;
+        padding-bottom: 25px;
+        padding-left: 35px;
+        padding-right: 35px;
+        width: 125px;
+    }
+
+    #board {
+        border-radius: 10px;
+        width: fit-content;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        height: fit-content;
+    }
+</style>
+<script>
+
+    function com() {
+        setTimeout(function ch() {
+            win_chek();
+            if (comarr[0].innerHTML == "-" || comarr[1].innerHTML == "-" || comarr[2].innerHTML == "-" || comarr[3].innerHTML == "-" || comarr[4].innerHTML == "-" || comarr[5].innerHTML == "-" || comarr[6].innerHTML == "-" || comarr[7].innerHTML == "-" || comarr[8].innerHTML == "-") {
+                var ran = Math.floor(Math.random() * 9);
+                if (comarr[ran].innerHTML == "-") {
+                    comarr[ran].innerHTML = "O";
+                }
+                else {
+                    win_chek();
+                    com();
+                }
+            }
+        }, 500);
+    }
+    var buts = document.getElementsByClassName("chn");
+    Array.from(buts, (ele) => {
+        win_chek();
+        ele.addEventListener('click', () => {
+            if (ele.innerHTML == "-") {
+                ele.innerHTML = "X";
+                win_chek();
+                com();
+            }
+            win_chek();
+        });
+    });
+    var comarr = Array.from(buts);
+    function win_chek() {
+        var one = document.getElementById("one");
+        var two = document.getElementById("two");
+        var three = document.getElementById("three");
+        var four = document.getElementById("four");
+        var five = document.getElementById("five");
+        var six = document.getElementById("six");
+        var seven = document.getElementById("seven");
+        var eight = document.getElementById("eight");
+        var nine = document.getElementById("nine");
+        var winarrs = [[one, five, nine], [three, five, seven], [one, two, three], [four, five, six], [seven, eight, nine], [one, four, seven], [two, five, eight], [three, six, nine]];
+        for (let i = 0; i < winarrs.length; i++) {
+            const element = winarrs[i];
+            for (let j = 0; j < element.length; j++) {
+                if (element[0].innerText == "X" && element[1].innerText == "X" && element[2].innerText == "X") {
+                    Array.from(buts, (eles) => {
+                        eles.style.color = "black";
+                    });
+                    element[0].style.color = "green";
+                    element[1].style.color = "green";
+                    element[2].style.color = "green";
+                }
+            }
+        }
+    }
+
+</script>
+
+</html>

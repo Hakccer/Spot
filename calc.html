@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div id="main" class="ml-auto mr-auto">
+        <h1 class="inp pb-2" id="inputs" style="font-size: x-large;">0</h1>
+        <div>
+            <div class="layer1 lay">
+                <button class="lay1 com" id="zero">AC</button>
+                <button class="lay1 com">+/-</button>
+                <button class="lay1 com">%</button>
+                <button class="oper com" id="divi">/</button>
+            </div>
+            <div class="layer2 lay">
+                <button class="lay2 com num">1</button>
+                <button class="lay2 com num">2</button>
+                <button class="lay2 com num">3</button>
+                <button class="oper com" id="plus">+</button>
+            </div>
+            <div class="layer3 lay">
+                <button class="lay3 com num">4</button>
+                <button class="lay3 com num">5</button>
+                <button class="lay3 com num">6</button>
+                <button class="oper com" id="minu">-</button>
+            </div>
+            <div class="layer4 lay">
+                <button class="lay4 com num">7</button>
+                <button class="lay4 com num">8</button>
+                <button class="lay4 com num">9</button>
+                <button class="oper com" id="mult">x</button>
+            </div>
+            <div class="layer5 lay">
+                <button class="lay4 coms" style="width: 85px; border-radius: 20px; height: 40px;">0</button>
+                <button class="oper com">.</button>
+                <button class="res com" onclick="result()">=</button>
+            </div>
+        </div>
+        <div>
+
+        </div>
+    </div>
+</body>
+<style>
+    #main {
+        background-color: black;
+        color: white;
+        padding-left: 15px;
+        padding-right: 15px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 205px;
+        height: 320px;
+        padding-top: 20px;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+
+    .lay {
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+    .com {
+        background-color: grey;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        transition-property: inherit;
+        transition-duration: .7s;
+        font-family: 'Poppins';
+    }
+
+    .coms {
+        transition-duration: .7s;
+        transition-property: inherit;
+        background-color: grey;
+        font-family: 'Poppins';
+    }
+
+    .coms:hover {
+        background-color: white;
+        color: black;
+    }
+
+    .oper {
+        background-color: orange;
+        font-family: 'Poppins';
+    }
+
+    .com:hover {
+        background-color: white;
+        color: black;
+    }
+</style>
+<script>
+    var arr;
+    var inp = document.getElementById("inputs");
+    Array.from(document.getElementsByClassName("num"), (e) => {
+        e.addEventListener('click', () => {
+            if (inp.innerText == "0") {
+                inp.innerText = e.innerText;
+            }
+            else {
+                inp.innerText += e.innerText;
+            }
+        });
+    });
+    var plus = document.getElementById("plus");
+    plus.addEventListener('click', () => {
+        if (inp.innerText.includes("+")) {
+            arr = inp.innerText.split("+");
+            if (arr.length > 1) {
+                result();
+            }
+        }
+        else if (!inp.innerText.includes("+") && !inp.innerText.includes("-") && !inp.innerText.includes("/") && !inp.innerText.includes("x")) {
+            inp.innerText += "+";
+        }
+    });
+    var minus = document.getElementById("minu");
+    minus.addEventListener('click', () => {
+        arr = inp.innerText.split("-");
+        if (arr.length > 1) {
+            result();
+        }
+        else if (!inp.innerText.includes("+") && !inp.innerText.includes("-") && !inp.innerText.includes("/") && !inp.innerText.includes("x")) {
+            inp.innerText += "-";
+        }
+    });
+    var divis = document.getElementById("divi");
+    divis.addEventListener('click', () => {
+        arr = inp.innerText.split("/");
+        if (arr.length > 1) {
+            result();
+        }
+        else if (!inp.innerText.includes("+") && !inp.innerText.includes("-") && !inp.innerText.includes("/") && !inp.innerText.includes("x")) {
+            inp.innerText += "/";
+        }
+    });
+    var multi = document.getElementById("mult");
+    multi.addEventListener('click', () => {
+        arr = inp.innerText.split("x");
+        if (arr.length > 1) {
+            result();
+        }
+        else if (!inp.innerText.includes("+") && !inp.innerText.includes("-") && !inp.innerText.includes("/") && !inp.innerText.includes("x")) {
+            inp.innerText += "x";
+        }
+    });
+    function result() {
+        if (inp.innerText.includes("+")) {
+            arr = inp.innerText.split("+");
+            if (inp.innerText.endsWith("+")) {
+                inp.innerText = inp.innerText.replace("+", "");
+            }
+            else {
+                inp.innerText = parseInt(arr[0]) + parseInt(arr[1]);
+            }
+        }
+        else if (inp.innerText.includes("-")) {
+            arr = inp.innerText.split("-");
+            if (inp.innerText.endsWith("-")) {
+                inp.innerText = inp.innerText.replace("-", "");
+            }
+            else {
+                inp.innerText = parseInt(arr[0]) - parseInt(arr[1]);
+            }
+        }
+        else if (inp.innerText.includes("/")) {
+            arr = inp.innerText.split("/");
+            if (inp.innerText.endsWith("/")) {
+                inp.innerText = inp.innerText.replace("/", "");
+            }
+            else {
+                inp.innerText = parseInt(arr[0]) / parseInt(arr[1]);
+            }
+        }
+        else if (inp.innerText.includes("x")) {
+            arr = inp.innerText.split("x");
+            if (inp.innerText.endsWith("x")) {
+                inp.innerText = inp.innerText.replace("x", "");
+            }
+            else {
+                inp.innerText = parseInt(arr[0]) * parseInt(arr[1]);
+            }
+        }
+    }
+    var z = document.getElementById("zero");
+    z.addEventListener('click', () => {
+        inp.innerText = "0";
+    });
+</script>
+
+</html>

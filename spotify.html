@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/88835bcb45.js" crossorigin="anonymous"></script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-black">
+    <div id="main" class="flex">
+        <div id="side_bar" style="width: 260px; border-right: .3px solid white;" class="p-6">
+            <div id="log"><img src="spot.png" alt=""></div>
+            <div id="refers" style="font-family: 'Poppins'; letter-spacing: 1.5px; "
+                class="text-white font-semibold mt-12">
+                <div id="home" class="flex mr-2 mt-7">
+                    <i class="fa-solid fa-house mr-5"></i>
+                    <h1>Home</h1>
+                </div>
+                <div id="sear" class="flex mr-2 mt-7">
+                    <i class="fa-solid fa-magnifying-glass mr-5"></i>
+                    <h1>Search</h1>
+                </div>
+                <div id="lib" class="flex mr-2 mt-7">
+                    <i class="fa-solid fa-cart-shopping mr-5"></i>
+                    <h1 style="width: max-content;">Your Library</h1>
+                </div>
+            </div>
+            <div id="make" style="font-family: 'Poppins'; letter-spacing: 1.5px;"
+                class="text-white font-semibold mt-16">
+                <div id="create" class="flex">
+                    <i class="fa-solid fa-circle-plus mr-3 text-white"></i>
+                    <h1 style="width: max-content;">Create Playlist</h1>
+                </div>
+                <div id="like" class="flex mt-7">
+                    <i class="fa-solid fa-circle-plus mr-3 text-white"></i>
+                    <h1 style="width: max-content;">Like Songs</h1>
+                </div>
+            </div>
+            <div id="prog_bar" class="text-white" style="width: 100%; color: white; margin-top: 400px;">
+                <h1 class="font-bold text-sm mb-4" id="cur" style="font-family: 'Poppins';">Play a Song By Click On a Tile</h1>
+                <input type="range" name="range" id="pro" value="0" style="width: 210px">
+                <button><i class="fa-solid fa-circle-play" id="cir" onclick="cont()" style="margin-left: 90px; margin-top: 10px;"></i></button>
+            </div>
+        </div>
+        <div id="musics" class="w-full">
+            <div id="rec" class="p-3.5 m-5 pt-10"
+                style="border-radius: 20px; background-color: rgb(36, 11, 11); height: 420px;">
+                <div id="rec_text">
+                    <h1 class="text-white font-bold text-4xl pl-7 pb-14" style="font-family: 'Poppins';">Recently Played
+                    </h1>
+                </div>
+                <ul class=" flex">
+                    <li class="rec-songs sonic m-auto" id="1"><img class="sons" src="baaki.jpg" alt="">
+                        <h1 class=" text-white text-xs song-tit" style="font-family: 'Poppins';">Baaki Baatein Peene
+                            Baad.</h1>
+                        <h1 class=" text-gray-500 sing-name text-xs font-semibold" style="font-family: 'Poppins';">Arjun
+                            Kanungo</h1>
+                    </li>
+                    <li class="rec-songs sonic m-auto" id="2"><img class="sons" src="bho.jpg" alt="">
+                        <h1 class=" text-white text-xs song-tit" style="font-family: 'Poppins';">Party With The Bhootnath</h1>
+                        <h1 class=" text-gray-500 sing-name text-xs font-semibold" style="font-family: 'Poppins';">Arjun
+                            Kanungo</h1>
+                    </li>
+                    <li class="rec-songs m-auto"><img class="sing" src="ka.jpg" alt="">
+                        <h1 class="mt-5 text-white text-center text-xs font-semibold" style="font-family: 'Poppins';">
+                            Arjun Kanungo</h1>
+                    </li>
+                    <li class="rec-songs sonic m-auto" id="3"><img class="sons" src="thund.jpg" alt="">
+                        <h1 class=" text-white text-xs song-tit" style="font-family: 'Poppins';">Thunder By Imagine Dragons</h1>
+                        <h1 class=" text-gray-500 sing-name text-xs font-semibold" style="font-family: 'Poppins';">Arjun
+                            Kanungo</h1>
+                    </li>
+                    <li class="rec-songs sonic m-auto" id="1"><img class="sons" src="baaki.jpg" alt="">
+                        <h1 class=" text-white text-xs song-tit" style="font-family: 'Poppins';">Baaki Baatein Peene
+                            Baad.</h1>
+                        <h1 class=" text-gray-500 sing-name text-xs font-semibold" style="font-family: 'Poppins';">Arjun
+                            Kanungo</h1>
+                    </li>
+                </ul>
+            </div>
+            <div id="for-you" class="p-3.5 m-5 pt-10"
+                style="border-radius: 20px; background-color: rgb(36, 11, 11); height: 420px;">
+                <div id="for_text">
+                    <h1 class="text-white font-bold text-4xl pl-7 pb-14" style="font-family: 'Poppins';">Songs For You
+                    </h1>
+                </div>
+                <ul class=" flex">
+                    <li class="rec-songs m-auto"><img class="sons" src="baaki.jpg" alt="">
+                        <h1 class=" text-white text-xs song-tit" style="font-family: 'Poppins';">Baaki Baatein Peene
+                            Baad.</h1>
+                        <h1 class=" text-gray-500 sing-name text-xs font-semibold" style="font-family: 'Poppins';">Arjun
+                            Kanungo</h1>
+                    </li>
+                    <li class="rec-songs m-auto"><img class="sons" src="bho.jpg" alt="">
+                        <h1 class=" text-white text-xs song-tit" style="font-family: 'Poppins';">Baaki Baatein Peene
+                            Baad.</h1>
+                        <h1 class=" text-gray-500 sing-name text-xs font-semibold" style="font-family: 'Poppins';">Arjun
+                            Kanungo</h1>
+                    </li>
+                    </li>
+                    <li class="rec-songs m-auto"><img class="sing" src="ka.jpg" alt="">
+                        <h1 class="mt-5 text-white text-center text-xs font-semibold" style="font-family: 'Poppins';">
+                            Arjun Kanungo</h1>
+                    </li>
+                    </li>
+                    <li class="rec-songs m-auto"><img class="sons" src="thund.jpg" alt="">
+                        <h1 class=" text-white text-xs song-tit" style="font-family: 'Poppins';">Baaki Baatein Peene
+                            Baad.</h1>
+                        <h1 class=" text-gray-500 sing-name text-xs font-semibold" style="font-family: 'Poppins';">Arjun
+                            Kanungo</h1>
+                    </li>
+                    </li>
+                    <li class="rec-songs m-auto"><img class="sons" src="baaki.jpg" alt="">
+                        <h1 class=" text-white text-xs song-tit" style="font-family: 'Poppins';">Baaki Baatein Peene
+                            Baad.</h1>
+                        <h1 class=" text-gray-500 sing-name text-xs font-semibold" style="font-family: 'Poppins';">Arjun
+                            Kanungo</h1>
+                    </li>
+                    </li>
+                </ul>
+            </div>
+            <div id="recc" class="p-3.5 m-5 pt-10"
+                style="border-radius: 20px; background-color: rgb(36, 11, 11); height: 420px;">
+                <div id="recc_text">
+                    <h1 class="text-white font-bold text-4xl pl-7 pb-14" style="font-family: 'Poppins';">Recommended
+                        Today
+                    </h1>
+                </div>
+                <ul class=" flex">
+                    <li class="rec-songs m-auto"><img class="sons" src="baaki.jpg" alt="">
+                        <h1 class=" text-white text-xs song-tit" style="font-family: 'Poppins';">Baaki Baatein Peene
+                            Baad.</h1>
+                        <h1 class=" text-gray-500 sing-name text-xs font-semibold" style="font-family: 'Poppins';">Arjun
+                            Kanungo</h1>
+                    </li>
+                    <li class="rec-songs m-auto"><img class="sons" src="bho.jpg" alt="">
+                        <h1 class=" text-white text-xs song-tit" style="font-family: 'Poppins';">Party With The Bhootnath</h1>
+                        <h1 class=" text-gray-500 sing-name text-xs font-semibold" style="font-family: 'Poppins';">Arjun
+                            Kanungo</h1>
+                    </li>
+                    </li>
+                    <li class="rec-songs m-auto"><img class="sing" src="ka.jpg" alt="">
+                        <h1 class="mt-5 text-white text-center text-xs font-semibold" style="font-family: 'Poppins';">
+                            Arjun Kanungo</h1>
+                    </li>
+                    </li>
+                    <li class="rec-songs m-auto"><img class="sons" src="thund.jpg" alt="">
+                        <h1 class=" text-white text-xs song-tit" style="font-family: 'Poppins';">Thunder Imagine Dragons</h1>
+                        <h1 class=" text-gray-500 sing-name text-xs font-semibold" style="font-family: 'Poppins';">Arjun
+                            Kanungo</h1>
+                    </li>
+                    </li>
+                    <li class="rec-songs m-auto"><img class="sons" src="baaki.jpg" alt="">
+                        <h1 class=" text-white text-xs song-tit" style="font-family: 'Poppins';">Baaki Baatein Peene
+                            Baad.</h1>
+                        <h1 class=" text-gray-500 sing-name text-xs font-semibold" style="font-family: 'Poppins';">Arjun
+                            Kanungo</h1>
+                    </li>
+                    </li>
+                </ul>
+            </div>
+            <div id="good" class="p-3.5 m-5 pt-10"
+                style="border-radius: 20px; background-color: rgb(36, 11, 11); height: 420px;">
+                <div id="good_text">
+                    <h1 class="text-white font-bold text-4xl pl-7 pb-14" style="font-family: 'Poppins';">Good Afternoon
+                        Today
+                    </h1>
+                </div>
+                <ul class=" flex">
+                    <li class="rec-songs m-auto"><img class="sons" id="1" src="baaki.jpg" alt="">
+                        <h1 class=" text-white text-xs song-tit" style="font-family: 'Poppins';">Baaki Baatein Peene
+                            Baad.</h1>
+                        <h1 class=" text-gray-500 sing-name text-xs font-semibold" style="font-family: 'Poppins';">Arjun
+                            Kanungo</h1>
+                    </li>
+                    <li class="rec-songs m-auto"><img class="sons" id="2" src="bho.jpg" alt="">
+                        <h1 class=" text-white text-xs song-tit" style="font-family: 'Poppins';">Baaki Baatein Peene
+                            Baad.</h1>
+                        <h1 class=" text-gray-500 sing-name text-xs font-semibold" style="font-family: 'Poppins';">Arjun
+                            Kanungo</h1>
+                    </li>
+                    </li>
+                    <li class="rec-songs m-auto"><img class="sing" src="ka.jpg" alt="">
+                        <h1 class="mt-5 text-white text-center text-xs font-semibold" style="font-family: 'Poppins';">
+                            Arjun Kanungo</h1>
+                    </li>
+                    </li>
+                    <li class="rec-songs m-auto"><img class="sons" id="3" src="thund.jpg" alt="">
+                        <h1 class=" text-white text-xs song-tit" style="font-family: 'Poppins';">Baaki Baatein Peene
+                            Baad.</h1>
+                        <h1 class=" text-gray-500 sing-name text-xs font-semibold" style="font-family: 'Poppins';">Arjun
+                            Kanungo</h1>
+                    </li>
+                    </li>
+                    <li class="rec-songs m-auto"><img class="sons" id="4" src="baaki.jpg" alt="">
+                        <h1 class=" text-white text-xs song-tit" style="font-family: 'Poppins';">Baaki Baatein Peene
+                            Baad.</h1>
+                        <h1 class=" text-gray-500 sing-name text-xs font-semibold" style="font-family: 'Poppins';">Arjun
+                            Kanungo</h1>
+                    </li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    html {
+        height: 100%;
+    }
+
+    i {
+        font-size: x-large;
+    }
+
+    #refers {
+        margin-left: 7px;
+    }
+
+    body {
+        height: 100%;
+    }
+
+    #main {
+        height: 100%;
+    }
+
+    #side_bar {
+        height: 100%;
+        position: fixed;
+        background-color: black;
+    }
+
+    .rec-songs {
+        width: 130px;
+        height: 200px;
+        border-radius: 10px;
+    }
+    img{
+        transition-property: inherit;
+        transition-duration: 1s;
+    }
+    img:hover{
+        border-radius: 50%;
+    }
+    .sing {
+        width: 120px;
+        height: 150px;
+        border-radius: 50%;
+    }
+
+    .sons {
+        border-radius: 10px;
+        width: 130px;
+        height: 150px;
+    }
+
+    .song-tit {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        font-weight: 700;
+        letter-spacing: .3px;
+    }
+
+    #musics {
+        margin-left: 250px;
+    }
+</style>
+<script>
+    //<i class="fa-solid fa-circle-pause"></i>
+    var progress = document.getElementById("pro");
+    var ico = document.getElementById('cir');
+    var aud = new Audio();
+    aud.src = "";
+    console.log(aud.src);
+    var dd;
+    var musics = {
+        "1":'baaki.mp3',
+        "2":'par.mp3',
+        "3":'dra.mp3'
+    }
+    var current_song_name = document.getElementById("cur");
+    var tiles = document.getElementsByClassName("sonic");
+    Array.from(tiles,(ele) => {
+        ele.addEventListener('click',() =>{
+            console.log(ele.childNodes[2].innerText);
+            current_song_name.innerText = ele.childNodes[2].innerText;
+            dd = ele.id;
+            aud.src = musics[dd];
+            aud.play();
+            ico.className = "fa-solid fa-circle-pause";
+        });
+    });
+    function cont() {
+        if (aud.src != ""){
+            if(aud.duration > 0 && !aud.paused){
+                aud.pause();
+                ico.className = "fa-solid fa-circle-play"
+            }
+            else{
+                aud.play();
+                ico.className = "fa-solid fa-circle-pause";
+            }
+        }
+        else{
+            return 0;
+        }
+    }
+    aud.addEventListener('timeupdate',() =>{
+        progresse = parseFloat((aud.currentTime/aud.duration)*100);
+        progress.value = progresse;
+    });
+    progress.addEventListener('change',() => {
+        aud.currentTime = parseFloat((progress.value*aud.duration)/100);
+    });
+    document.addEventListener("keypress", function onEvent(event) {
+    if (event.key === "ArrowLeft") {
+        progress.value += 10;
+    }
+    else if (event.key === "ArrowRight") {
+        progress.value -= 10;
+    }
+});
+</script>
+</html>

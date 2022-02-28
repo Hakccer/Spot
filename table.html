@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div id="inp" class="ml-auto mr-auto mt-4 mb-16" style="font-family: 'Poppins'; width: 510px;">
+        <div id="fields">
+            <div id="nam" class="fie">
+                <h1 class="mb-1.5 text-xl ml-1">Name</h1>
+                <input type="text" id="na" placeholder="Enter Name">
+            </div>
+            <div id="age" class="fie">
+                <h1 class="mb-1.5 text-xl ml-1">Age</h1>
+                <input type="text" id="ag" placeholder="Enter Age">
+            </div>
+            <div id="loc" class="fie">
+                <h1 class="mb-1.5 text-xl ml-1">Location</h1>
+                <input type="text" id="lo" placeholder="Enter Location">
+            </div>
+            <button class="bg-black text-white" id="sub" onclick="add()"
+                style="width: 450px; border-radius: 10px; padding-top: 5px; font-family: 'Poppins'; padding-bottom: 5px;">Submit</button>
+        </div>
+    </div>
+    <div id="tab" class="text-center text-3xl" style="font-family: 'Poppins';">
+        <table id="tabl">
+            <tr class="main_bor">
+                <td class="head col1 font-extrabold">Name</td>
+                <td class="head col2 font-extrabold">Age</td>
+                <td class="head col3 font-extrabold">Location</td>
+                <td class="head col3 font-extrabold">Delete</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<style>
+    #tab {
+        width: fit-content;
+        height: fit-content;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-top: .7px solid black;
+        border-left: .7px solid black;
+        border-right: .7px solid black;
+        border-radius: 10px;
+        margin-bottom: 70px;
+    }
+
+    .col1 {
+        border-right: .7px solid black;
+    }
+
+    .col3 {
+        border-left: .7px solid black;
+    }
+
+    td {
+        padding-left: 40px;
+        padding-right: 40px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .main_bor {
+        border-bottom: .7px solid black;
+    }
+
+    .head {
+        transition-property: inherit;
+        transition-duration: .7s;
+    }
+
+    .head:hover {
+        background-color: black;
+        color: white;
+    }
+
+    .data {
+        transition-property: inherit;
+        transition-duration: .7s;
+    }
+
+    .data:hover {
+        background-color: greenyellow;
+    }
+
+    input {
+        width: 450px;
+        outline: none;
+        border: .7px solid black;
+        border-radius: 10px;
+        padding: 4px;
+    }
+
+    input::placeholder {
+        color: black;
+    }
+
+    .fie {
+        margin-bottom: 25px;
+    }
+</style>
+<script>
+    var subs = document.getElementById("sub");
+    if (localStorage.getItem("ids") == null) {
+        localStorage.setItem("ids", -1);
+    }
+    var id = parseInt(localStorage.getItem("ids"));
+    function add() {
+        var a = document.getElementById("na").value;
+        var b = document.getElementById("ag").value;
+        var c = document.getElementById("lo").value;
+        if (localStorage.getItem("data") == null) {
+            var arr = [];
+            if (a != "" && b != "" && c != "") {
+                arr.push([a, b, c, id]);
+                id += 1;
+                localStorage.setItem("ids",id);
+                json_str = JSON.stringify(arr);
+                localStorage.setItem("data", json_str);
+                localStorage.setItem("ids", id);
+            }
+        }
+        else {
+            if (a != "" && b != "" && c != "") {
+                dats = JSON.parse(localStorage.getItem("data"));
+                dats.push([a, b, c, id]);
+                id += 1;
+                localStorage.setItem("ids",id);
+                json_str = JSON.stringify(dats);
+                localStorage.setItem("data", json_str);
+            }
+        }
+
+        dats = JSON.parse(localStorage.getItem("data"));
+        let strs = `<tr class="main_bor">
+                <td class="head col1 font-extrabold">Name</td>
+                <td class="head col2 font-extrabold">Age</td>
+                <td class="head col3 font-extrabold">Location</td>
+                <td class="head col3 font-extrabold">Delete</td>
+            </tr>`;
+        if (dats != null) {
+            dats.forEach(element => {
+            strs += `<tr style="border-radius: 10px; border-bottom: .7px solid black;">
+                <td class="col1 data">${element[0]}</td>
+                <td class="col2 data">${element[1]}</td>
+                <td class="col3 data">${element[2]}</td>
+                <td class="data col3"><button class="del" onclick="del(${element[3]})" onc>Delete</button></td>
+            </tr>`
+        });
+        }
+        document.getElementById("tabl").innerHTML = strs;
+    }
+    function rec() {
+        dats = JSON.parse(localStorage.getItem("data"));
+        let strs = `<tr class="main_bor">
+                <td class="head col1 font-extrabold">Name</td>
+                <td class="head col2 font-extrabold">Age</td>
+                <td class="head col3 font-extrabold">Location</td>
+                <td class="head col3 font-extrabold">Delete</td>
+            </tr>`;
+        if (dats != null) {
+            dats.forEach(element => {
+            strs += `<tr style="border-radius: 10px; border-bottom: .7px solid black;">
+                <td class="col1 data">${element[0]}</td>
+                <td class="col2 data">${element[1]}</td>
+                <td class="col3 data">${element[2]}</td>
+                <td class="data col3"><button class="del" onclick="del(${element[3]})" onc>Delete</button></td>
+            </tr>`
+        });
+        }
+        document.getElementById("tabl").innerHTML = strs;
+    }
+    add();
+    rec();
+    function del(index) {
+        var dd = parseInt(localStorage.getItem("ids"));
+        var ar = JSON.parse(localStorage.getItem("data"));
+        ar.splice(index,1);
+        if (dd > -1){
+            dd -= 1;
+            localStorage.setItem("ids",dd);
+        }
+        localStorage.setItem("data",JSON.stringify(ar));
+        rec();
+    }
+</script>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="yes rounded-md p-5 bg-black text-white" style="box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;">
+        <div class="flex" style="font-family: Poppins;">
+            <h1 id="hour" style="font-family: Poppins;">00</h1>:<h1 id="minu">00</h1>:<h1 id="sec">00</h1>
+        </div>
+        <h1 style="font-size:x-large; text-align: center;">Time Is Here.</h1>
+    </div>
+</body>
+<style>
+    .yes {
+        text-align: center;
+        width: 399px;
+        height: 230px;
+        border-radius: 10px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        font-size: 100px;
+    }
+</style>
+<script>
+    var date = new Date();
+    var h = document.getElementById("hour");
+    var m = document.getElementById("minu");
+    var s = document.getElementById("sec");
+    h.innerText = date.getHours();
+    m.innerText = date.getMinutes();
+    s.innerText = date.getSeconds();
+    setInterval(() => {
+        var date = new Date();
+        h.innerText = date.getHours();
+        m.innerText = date.getMinutes();
+        s.innerText = date.getSeconds();
+        console.log(date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());
+    }, 1000);
+</script>
+
+</html>
