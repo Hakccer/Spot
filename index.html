@@ -34,25 +34,25 @@
             <h1 class="text-center"></h1>
             <div class=" w-full mb-10 con">
                 <div class="flex w-full">
-                    <div class="song text-white">
-                        <li><img class="imgs" src="baaki.jpg" alt=""></li>
+                    <div class="song text-white" id="1">
+                        <li><img class="imgs" src="/baaki.jpg" alt=""></li>
                         <h1 class="tits">Baaki Baatein Peene Baad.</h1>
                         <h1 class="tit">Arjun Kanungo</h1>
                     </div>
-                    <div class="song">
-                        <li><img class="imgs" src="bho.jpg" alt=""></li>
-                        <h1 class="tits">Baaki Baatein Peene Baad.</h1>
-                        <h1 class="tit">Arjun Kanungo</h1>
+                    <div class="song" id="2">
+                        <li><img class="imgs " src="/bho.jpg" alt=""></li>
+                        <h1 class="tits">Party With The Bhootnath</h1>
+                        <h1 class="tit">Baadshah</h1>
                     </div>
                 </div>
                 <div class="flex w-full">
-                    <div class="song">
-                        <li><img class="imgs" src="thund.jpg" alt=""></li>
-                        <h1 class="tits">Baaki Baatein Peene Baad.</h1>
-                        <h1 class="tit">Arjun Kanungo</h1>
+                    <div class="song" id="3">
+                        <li><img class="imgs" src="/thund.jpg" alt=""></li>
+                        <h1 class="tits">Thunder</h1>
+                        <h1 class="tit">Imagine Dragons</h1>
                     </div>
-                    <div class="song">
-                        <li><img class="imgs" src="bho.jpg" alt=""></li>
+                    <div class="song" id="1">
+                        <li><img class="imgs" src="/bho.jpg" alt=""></li>
                         <h1 class="tits">Baaki Baatein Peene Baad.</h1>
                         <h1 class="tit">Arjun Kanungo</h1>
                     </div>
@@ -61,24 +61,24 @@
             <div class=" w-full mb-10 con">
                 <div class="flex w-full">
                     <div class="song text-white">
-                        <li><img class="imgs" src="baaki.jpg" alt=""></li>
+                        <li><img class="imgs" src="/baaki.jpg" alt=""></li>
                         <h1 class="tits">Baaki Baatein Peene Baad.</h1>
                         <h1 class="tit">Arjun Kanungo</h1>
                     </div>
                     <div class="song">
-                        <li><img class="imgs" src="bho.jpg" alt=""></li>
+                        <li><img class="imgs" src="/bho.jpg" alt=""></li>
                         <h1 class="tits">Baaki Baatein Peene Baad.</h1>
                         <h1 class="tit">Arjun Kanungo</h1>
                     </div>
                 </div>
                 <div class="flex w-full">
                     <div class="song">
-                        <li><img class="imgs" src="thund.jpg" alt=""></li>
+                        <li><img class="imgs" src="/thund.jpg" alt=""></li>
                         <h1 class="tits">Baaki Baatein Peene Baad.</h1>
                         <h1 class="tit">Arjun Kanungo</h1>
                     </div>
                     <div class="song">
-                        <li><img class="imgs" src="bho.jpg" alt=""></li>
+                        <li><img class="imgs" src="/bho.jpg" alt=""></li>
                         <h1 class="tits">Baaki Baatein Peene Baad.</h1>
                         <h1 class="tit">Arjun Kanungo</h1>
                     </div>
@@ -87,24 +87,24 @@
             <div class="w-full mb-10 con">
                 <div class="flex w-full">
                     <div class="song text-white">
-                        <li><img class="imgs" src="baaki.jpg" alt=""></li>
+                        <li><img class="imgs" src="/baaki.jpg" alt=""></li>
                         <h1 class="tits">Baaki Baatein Peene Baad.</h1>
                         <h1 class="tit">Arjun Kanungo</h1>
                     </div>
                     <div class="song">
-                        <li><img class="imgs" src="bho.jpg" alt=""></li>
+                        <li><img class="imgs" src="/bho.jpg" alt=""></li>
                         <h1 class="tits">Baaki Baatein Peene Baad.</h1>
                         <h1 class="tit">Arjun Kanungo</h1>
                     </div>
                 </div>
                 <div class="flex w-full">
                     <div class="song">
-                        <li><img class="imgs" src="thund.jpg" alt=""></li>
+                        <li><img class="imgs" src="/thund.jpg" alt=""></li>
                         <h1 class="tits">Baaki Baatein Peene Baad.</h1>
                         <h1 class="tit">Arjun Kanungo</h1>
                     </div>
                     <div class="song">
-                        <li><img class="imgs" src="bho.jpg" alt=""></li>
+                        <li><img class="imgs" src="/bho.jpg" alt=""></li>
                         <h1 class="tits">Baaki Baatein Peene Baad.</h1>
                         <h1 class="tit">Arjun Kanungo</h1>
                     </div>
@@ -113,8 +113,8 @@
         </div>
     </div>
     <div class="bg-white w-full text-center" style="position: fixed; bottom: .1px;">
-        <h1>Click on a Song Tile</h1>
-        <input type="range">
+        <h1 id="sont">Click on a Song Tile</h1>
+        <input id="inp" maxlength="100" value="0" type="range">
     </div>
 </body>
 <style>
@@ -188,4 +188,53 @@
         }
     }
 </style>
+<script>
+    var mus = new Audio();
+    mus.src = null;
+    var musics = {
+        '1':'baaki.mp3',
+        '2':'par.mp3',
+        '3':'dra.mp3'
+    }
+    var t = document.getElementById('sont');
+    var a = document.getElementsByClassName('song');
+    Array.from(a,(ele) =>{
+        ele.addEventListener('click',() => {
+            var a = ele.children[1].innerText;
+            t.innerText = a
+            idd = ele.id;
+            if (idd == "1") {
+                mus.src = musics['1'];
+                mus.play();
+            }
+            else if (idd == "2") {
+                mus.src = musics['2'];
+                mus.play();
+            }
+            else if (idd == "3") {
+                mus.src = musics['3'];
+                mus.play();
+            }
+        });
+    })
+    t.addEventListener('click',() =>{
+        if (mus.src != null) {
+            if (mus.duration > 0 && !mus.paused) {
+                mus.pause();
+            }
+            else{
+                mus.play();
+            }
+        }
+    });
+    var i = document.getElementById('inp');
+    mus.addEventListener('timeupdate', () => {
+        var vals = parseFloat((mus.currentTime/mus.duration)*100);
+        i.value = vals;
+    })
+    i.addEventListener('change',() => {
+        var df = parseFloat((i.value*mus.duration)/100);
+        mus.currentTime = df;
+    });
+</script>
 </html>
